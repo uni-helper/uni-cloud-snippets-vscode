@@ -128,7 +128,7 @@
     "description": "uniCloud 客户端监听登录态更新事件。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。"
   },
   "uniCloud 客户端移除监听登录态更新事件": {
-    "prefix": ["uniCloud.ofRefreshToken"],
+    "prefix": ["uniCloud.offRefreshToken"],
     "body": ["uniCloud.offRefreshToken($1)$0"],
     "description": "uniCloud 客户端移除监听登录态更新事件。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。"
   },
@@ -142,14 +142,29 @@
     "body": ["uniCloud.getFileInfo({ fileList: $1 })$0"],
     "description": "uniCloud 客户端使用阿里云公测版云存储链接获取商用版云存储链接。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。"
   },
+  "uniCloud 客户端设置自定义客户端信息": {
+    "prefix": ["uniCloud.setCustomClientInfo"],
+    "body": ["uniCloud.setCustomClientInfo($1)$0"],
+    "description": "uniCloud 客户端设置自定义客户端信息，传递到所有云函数、云对象和 clientDB 请求。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。"
+  },
+  "uniCloud 客户端监听故障转移事件": {
+    "prefix": ["uniCloud.onFailover"],
+    "body": ["uniCloud.onFailover($1)$0"],
+    "description": "uniCloud 客户端监听故障转移事件。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。"
+  },
+  "uniCloud 客户端移除监听故障转移事件": {
+    "prefix": ["uniCloud.offFailover"],
+    "body": ["uniCloud.offFailover($1)$0"],
+    "description": "uniCloud 客户端移除监听故障转移事件。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。"
+  },
   "uniCloud 云函数/云对象获取云数据库实例": {
     "prefix": ["uniCloud.database"],
     "body": ["uniCloud.database()$0"],
     "description": "uniCloud 云函数/云对象获取云数据库实例。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#unicloud-api%E5%88%97%E8%A1%A8>。"
   },
   "uniCloud 云函数/云对象获取云数据库实例（JQL 语法）": {
-    "prefix": ["uniCloud.databaseForJQL"],
-    "body": ["uniCloud.databaseForJQL()$0"],
+    "prefix": ["uniCloud.databaseJQL"],
+    "body": ["uniCloud.databaseJQL()$0"],
     "description": "uniCloud 云函数/云对象获取云数据库实例（JQL 语法）。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#unicloud-api%E5%88%97%E8%A1%A8>。"
   },
   "uniCloud 云函数/云对象获取 Redis 实例": {
@@ -207,10 +222,25 @@
     "body": ["uniCloud.httpclient.request($1)$0"],
     "description": "uniCloud 云函数/云对象通过 HTTP 访问其他系统。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#unicloud-api%E5%88%97%E8%A1%A8>。"
   },
-  "uniCloud 云函数/云对象使用云厂商代理访问 HTTP 服务（仅阿里云支持）": {
-    "prefix": ["uniCloud.httpProxyForEip"],
-    "body": ["uniCloud.httpProxyForEip$0"],
-    "description": "uniCloud 云函数使/云对象用云厂商代理访问 HTTP 服务（仅阿里云支持）。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#unicloud-api%E5%88%97%E8%A1%A8>。"
+  "uniCloud 云函数/云对象使用云厂商代理发送 GET 请求（仅阿里云支持）": {
+    "prefix": ["uniCloud.httpProxyForEip.get"],
+    "body": ["uniCloud.httpProxyForEip.get($1)$0"],
+    "description": "uniCloud 云函数/云对象使用云厂商代理发送 GET 请求（仅阿里云支持）。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#unicloud-api%E5%88%97%E8%A1%A8>。"
+  },
+  "uniCloud 云函数/云对象使用云厂商代理发送 POST 表单请求（仅阿里云支持）": {
+    "prefix": ["uniCloud.httpProxyForEip.postForm"],
+    "body": ["uniCloud.httpProxyForEip.postForm($1)$0"],
+    "description": "uniCloud 云函数/云对象使用云厂商代理发送 POST 表单请求（仅阿里云支持）。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#unicloud-api%E5%88%97%E8%A1%A8>。"
+  },
+  "uniCloud 云函数/云对象使用云厂商代理发送 POST JSON 请求（仅阿里云支持）": {
+    "prefix": ["uniCloud.httpProxyForEip.postJson"],
+    "body": ["uniCloud.httpProxyForEip.postJson($1)$0"],
+    "description": "uniCloud 云函数/云对象使用云厂商代理发送 POST JSON 请求（仅阿里云支持）。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#unicloud-api%E5%88%97%E8%A1%A8>。"
+  },
+  "uniCloud 云函数/云对象使用云厂商代理发送 POST 请求（仅阿里云支持）": {
+    "prefix": ["uniCloud.httpProxyForEip.post"],
+    "body": ["uniCloud.httpProxyForEip.post($1)$0"],
+    "description": "uniCloud 云函数/云对象使用云厂商代理发送 POST 请求（仅阿里云支持）。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#unicloud-api%E5%88%97%E8%A1%A8>。"
   },
   "uniCloud 云函数/云对象发送短信": {
     "prefix": ["uniCloud.sendSms"],
@@ -269,5 +299,32 @@
     "prefix": ["uniCloud.getCloudInfos"],
     "body": ["uniCloud.getCloudInfos()$0"],
     "description": "uniCloud 云函数/云对象获取当前实例正在处理的请求对应的云端信息列表。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#unicloud-api%E5%88%97%E8%A1%A8>。"
+  },
+  "uniCloud 云函数/云对象发送 HTTP 请求": {
+    "prefix": ["uniCloud.request"],
+    "body": [
+      "uniCloud.request({",
+      "\turl: $1,",
+      "\tmethod: '${2|GET,POST,PUT,DELETE|}',",
+      "\tdata: $3,",
+      "\theaders: $4,",
+      "})$0"
+    ],
+    "description": "uniCloud 云函数/云对象发送简化的 HTTP 请求。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#unicloud-api%E5%88%97%E8%A1%A8>。"
+  },
+  "uniCloud 云函数/云对象建立 WebSocket 连接": {
+    "prefix": ["uniCloud.connectSocket"],
+    "body": [
+      "uniCloud.connectSocket({",
+      "\turl: $1,",
+      "\tcomplete: (result) => {$2},",
+      "})$0"
+    ],
+    "description": "uniCloud 云函数/云对象建立 WebSocket 连接。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#unicloud-api%E5%88%97%E8%A1%A8>。"
+  },
+  "uniCloud 云函数/云对象打印日志": {
+    "prefix": ["uniCloud.logger"],
+    "body": ["uniCloud.logger.log($1)$0"],
+    "description": "uniCloud 云函数/云对象打印日志到 uniCloud Web 控制台日志系统。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#unicloud-api%E5%88%97%E8%A1%A8>。"
   }
 }
