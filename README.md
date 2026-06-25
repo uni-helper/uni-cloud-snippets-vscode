@@ -43,7 +43,7 @@
 |`uniCloud.uploadFile()`|`uniCloud.uploadFile`|uniCloud 客户端上传文件到云存储。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。|
 |`uniCloud.getTempFileURL()`|`uniCloud.getTempFileURL`|uniCloud 客户端获取云存储文件的临时路径。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。|
 |`uniCloud.chooseAndUploadFile()`|`uniCloud.chooseAndUploadFile`|uniCloud 客户端选择文件并上传。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。|
-|`uniCloud.getCurrentUserInfo()`|`uniCloud.getCurrentUserInfo`|uniCloud 客户端获取当前用户信息。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。|
+|`const { uid, role, permission, tokenExpired } = uniCloud.getCurrentUserInfo()`|`uniCloud.getCurrentUserInfo`|uniCloud 客户端获取当前用户信息（同步方法）。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。|
 |`uniCloud.init()`|`uniCloud.init`|uniCloud 客户端同时使用多个服务空间时初始化额外服务空间。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。|
 |`uniCloud.addInterceptor()`|`uniCloud.addInterceptor`|uniCloud 客户端新增拦截器。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。|
 |`uniCloud.removeInterceptor()`|`uniCloud.removeInterceptor`|uniCloud 客户端移除拦截器。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。|
