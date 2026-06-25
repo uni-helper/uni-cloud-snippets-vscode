@@ -65,12 +65,9 @@
   "uniCloud 客户端获取当前用户信息": {
     "prefix": ["uniCloud.getCurrentUserInfo"],
     "body": [
-      "uniCloud.getCurrentUserInfo({",
-      "\tsuccess: (result) => {$1},",
-      "\tfail: (error) => {$2}",
-      "})$0"
+      "const { uid, role, permission, tokenExpired } = uniCloud.getCurrentUserInfo()$0"
     ],
-    "description": "uniCloud 客户端获取当前用户信息。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。"
+    "description": "uniCloud 客户端获取当前用户信息（同步方法）。更多信息查看 <https://uniapp.dcloud.net.cn/uniCloud/client-sdk>。"
   },
   "uniCloud 客户端同时使用多个服务空间时初始化额外服务空间": {
     "prefix": ["uniCloud.init"],
