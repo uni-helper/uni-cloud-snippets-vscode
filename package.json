@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/uni-helper/uni-cloud-snippets-vscode"
+    "url": "git+https://github.com/uni-helper/uni-cloud-snippets-vscode.git"
   },
   "license": "MIT",
   "author": {
@@ -36,8 +36,8 @@
     "uni-helper.png"
   ],
   "scripts": {
+    "check": "ultracite check",
     "fix": "ultracite fix",
-    "prepare": "is-ci || lefthook install",
     "publish": "conc \"npm:publish:vscode\" \"npm:publish:openvsx\"",
     "publish:openvsx": "ovsx publish",
     "publish:vscode": "vsce package && vsce publish",
@@ -81,33 +81,42 @@
     ]
   },
   "devDependencies": {
-    "@biomejs/biome": "~2.4.16",
-    "@tsconfig/node24": "^24.0.4",
-    "@types/node": "^24.13.2",
+    "@biomejs/biome": "^2.5.12",
+    "@tsconfig/node26": "^26.0.0",
+    "@types/node": "^26.4.1",
     "@vscode/vsce": "^3.9.2",
-    "bumpp": "^11.1.0",
-    "concurrently": "^10.0.3",
-    "is-ci": "^4.1.0",
-    "lefthook": "^2.1.9",
-    "ovsx": "^1.0.2",
-    "simple-git": "^3.36.0",
-    "tsx": "^4.22.4",
+    "bumpp": "^12.3.0",
+    "concurrently": "^10.0.5",
+    "ovsx": "^1.1.1",
+    "tsx": "^4.23.13",
     "typescript": "^6.0.3",
-    "ultracite": "^7.8.3"
+    "ultracite": "^7.11.0"
   },
-  "packageManager": "npm@11.17.0",
+  "packageManager": "npm@12.0.2",
   "engines": {
     "node": ">=18",
     "vscode": "^1.40.0"
   },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "26",
+      "onFail": "warn"
+    },
+    "packageManager": {
+      "name": "npm",
+      "version": "12.0.2",
+      "onFail": "warn"
+    }
+  },
   "icon": "uni-helper.png",
+  "allowScripts": {
+    "@vscode/vsce-sign@2.0.9": true,
+    "esbuild@0.28.1": true,
+    "fsevents@2.3.3": true,
+    "keytar@7.9.0": true
+  },
   "sponsor": {
     "url": "https://github.com/ModyQyW/sponsors"
-  },
-  "allowScripts": {
-    "lefthook@2.1.9": true,
-    "esbuild@0.28.1": true,
-    "keytar@7.9.0": true,
-    "@vscode/vsce-sign@2.0.9": true
   }
 }
