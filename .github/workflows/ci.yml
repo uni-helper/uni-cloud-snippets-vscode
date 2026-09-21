@@ -39,6 +39,3 @@ jobs:
 
       - name: Check
         run: vpr check
-
-      - name: Typecheck
-        run: vpr typecheck

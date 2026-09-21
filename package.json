@@ -41,8 +41,7 @@
     "publish": "conc \"npm:publish:vscode\" \"npm:publish:openvsx\"",
     "publish:openvsx": "ovsx publish",
     "publish:vscode": "vsce package && vsce publish",
-    "release": "bumpp --all -x=\"tsx ./scripts/update-readme.ts\"",
-    "typecheck": "tsc --noEmit"
+    "release": "bumpp --all"
   },
   "contributes": {
     "snippets": [
@@ -82,14 +81,10 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.12",
-    "@tsconfig/node26": "^26.0.0",
-    "@types/node": "^26.4.1",
     "@vscode/vsce": "^3.9.2",
     "bumpp": "^12.3.0",
     "concurrently": "^10.0.5",
     "ovsx": "^1.1.1",
-    "tsx": "^4.23.13",
-    "typescript": "^6.0.3",
     "ultracite": "^7.11.0"
   },
   "packageManager": "npm@12.0.2",

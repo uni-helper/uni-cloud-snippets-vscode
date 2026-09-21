@@ -1,123 +1,43 @@
-# Ultracite Code Standards
+# @uni-helper/uni-cloud-snippets-vscode
 
-This project uses **Ultracite**, a zero-config preset that enforces strict code quality standards through automated formatting and linting.
+VSCode extension providing uni-cloud code snippets (`prefix` + `body` pairs) for uni-app development. There is no runtime extension code — the artifact is two hand-maintained snippet JSON files plus wiring in `package.json`, and a hand-written README whose tables mirror those snippets.
 
-## Quick Reference
+## Project
 
-- **Format code**: `npm exec -- ultracite fix`
-- **Check for issues**: `npm exec -- ultracite check`
-- **Diagnose setup**: `npm exec -- ultracite doctor`
+- **Language/runtime:** no app source code — snippet JSON files and configuration only. Dev pins Node 26 via `.node-version` and `devEngines.runtime` (`onFail: warn`). Published `engines` are consumer-facing: `vscode ^1.40.0` (minimum VSCode) and `node >=18`.
+- **Toolchain:** npm 12 (pinned via `packageManager` + `devEngines.packageManager`), ultracite (a zero-config Biome preset) for lint/format, bumpp (release), @vscode/vsce + ovsx (publish). There is no test suite and no typecheck.
+- **Artifact:** the VSIX ships `snippets/`, `LICENSE`, `uni-helper.png` (`files` + `icon`). Published to both VSCode Marketplace and OpenVSX under publisher `uni-helper`.
 
-Biome (the underlying engine) provides robust linting and formatting. Most issues are automatically fixable.
+## Commands
 
----
+```bash
+npm install
+npm run check     # ultracite check — the only validation gate
+npm run fix       # ultracite fix
+npm run release   # bumpp: bumps version, commits, tags, pushes; the tag triggers .github/workflows/release.yml
+```
 
-## Core Principles
+CI (`.github/workflows/ci.yml`) runs `vpr check` via `voidzero-dev/setup-vp` on Node 22/24/26 × ubuntu/macos/windows. The release workflow publishes to both marketplaces (`VSCE_PAT` / `OVSX_PAT` secrets) and creates the GitHub Release via changelogithub.
 
-Write code that is **accessible, performant, type-safe, and maintainable**. Focus on clarity and explicit intent over brevity.
+## Architecture
 
-### Type Safety & Explicitness
+| File | Role |
+|---|---|
+| `snippets/vue-html.json` | uni-cloud component snippets (e.g. `<unicloud-db>`), served to `vue-html` / `vue` / `html` |
+| `snippets/javascript.json` | uni-cloud client/server API snippets, served to `javascript` / `javascriptreact` / `typescript` / `typescriptreact` / `vue` |
+| `package.json` → `contributes.snippets` | Maps each snippet file to its language IDs |
 
-- Use explicit types for function parameters and return values when they enhance clarity
-- Prefer `unknown` over `any` when the type is genuinely unknown
-- Use const assertions (`as const`) for immutable values and literal types
-- Leverage TypeScript's type narrowing instead of type assertions
-- Use meaningful variable names instead of magic numbers - extract constants with descriptive names
+### Snippet shape conventions
 
-### Modern JavaScript/TypeScript
+The two snippet files are the single source of truth — the extension serves them directly and the README tables mirror them:
 
-- Use arrow functions for callbacks and short functions
-- Prefer `for...of` loops over `.forEach()` and indexed `for` loops
-- Use optional chaining (`?.`) and nullish coalescing (`??`) for safer property access
-- Prefer template literals over string concatenation
-- Use destructuring for object and array assignments
-- Use `const` by default, `let` only when reassignment is needed, never `var`
+- `prefix` is an array so one snippet can offer aliases (`unicloud-db` also matches `<unicloud-db>`); a single entry is the norm.
+- `body` is an array of lines, indented with literal tabs, using `$1`…`$n` tabstops ending in `$0`.
+- Top-level keys are human-readable Chinese labels; `description` follows the pattern `……。更多信息查看 <官方文档 URL>。`
+- When adding or changing a snippet, update the matching README table row in the same change — the tables are hand-maintained to match `snippets/*.json`.
 
-### Async & Promises
+## Conventions
 
-- Always `await` promises in async functions - don't forget to use the return value
-- Use `async/await` syntax instead of promise chains for better readability
-- Handle errors appropriately in async code with try-catch blocks
-- Don't use async functions as Promise executors
-
-### React & JSX
-
-- Use function components over class components
-- Call hooks at the top level only, never conditionally
-- Specify all dependencies in hook dependency arrays correctly
-- Use the `key` prop for elements in iterables (prefer unique IDs over array indices)
-- Nest children between opening and closing tags instead of passing as props
-- Don't define components inside other components
-- Use semantic HTML and ARIA attributes for accessibility:
-  - Provide meaningful alt text for images
-  - Use proper heading hierarchy
-  - Add labels for form inputs
-  - Include keyboard event handlers alongside mouse events
-  - Use semantic elements (`<button>`, `<nav>`, etc.) instead of divs with roles
-
-### Error Handling & Debugging
-
-- Remove `console.log`, `debugger`, and `alert` statements from production code
-- Throw `Error` objects with descriptive messages, not strings or other values
-- Use `try-catch` blocks meaningfully - don't catch errors just to rethrow them
-- Prefer early returns over nested conditionals for error cases
-
-### Code Organization
-
-- Keep functions focused and under reasonable cognitive complexity limits
-- Extract complex conditions into well-named boolean variables
-- Use early returns to reduce nesting
-- Prefer simple conditionals over nested ternary operators
-- Group related code together and separate concerns
-
-### Security
-
-- Add `rel="noopener"` when using `target="_blank"` on links
-- Avoid `dangerouslySetInnerHTML` unless absolutely necessary
-- Don't use `eval()` or assign directly to `document.cookie`
-- Validate and sanitize user input
-
-### Performance
-
-- Avoid spread syntax in accumulators within loops
-- Use top-level regex literals instead of creating them in loops
-- Prefer specific imports over namespace imports
-- Avoid barrel files (index files that re-export everything)
-- Use proper image components (e.g., Next.js `<Image>`) over `<img>` tags
-
-### Framework-Specific Guidance
-
-**Next.js:**
-- Use Next.js `<Image>` component for images
-- Use `next/head` or App Router metadata API for head elements
-- Use Server Components for async data fetching instead of async Client Components
-
-**React 19+:**
-- Use ref as a prop instead of `React.forwardRef`
-
-**Solid/Svelte/Vue/Qwik:**
-- Use `class` and `for` attributes (not `className` or `htmlFor`)
-
----
-
-## Testing
-
-- Write assertions inside `it()` or `test()` blocks
-- Avoid done callbacks in async tests - use async/await instead
-- Don't use `.only` or `.skip` in committed code
-- Keep test suites reasonably flat - avoid excessive `describe` nesting
-
-## When Biome Can't Help
-
-Biome's linter will catch most issues automatically. Focus your attention on:
-
-1. **Business logic correctness** - Biome can't validate your algorithms
-2. **Meaningful naming** - Use descriptive names for functions, variables, and types
-3. **Architecture decisions** - Component structure, data flow, and API design
-4. **Edge cases** - Handle boundary conditions and error states
-5. **User experience** - Accessibility, performance, and usability considerations
-6. **Documentation** - Add comments for complex logic, but prefer self-documenting code
-
----
-
-Most formatting and common issues are automatically fixed by Biome. Run `npm exec -- ultracite fix` before committing to ensure compliance.
+- **Lint/format:** ultracite (Biome) via `npm run check` / `npm run fix`; `biome.jsonc` only adds the `!banner.svg` exclusion — the hand-drawn SVG must not be reformatted. The committed `.vscode/settings.json` sets Biome as the formatter with format-on-save and organize-imports; `.editorconfig` enforces 2-space indent, LF, UTF-8 (Markdown keeps trailing whitespace).
+- **Content language:** snippet keys and descriptions are Simplified Chinese, following the official uni-cloud docs; README and other docs are Simplified Chinese.
+- **Branches/commits:** `feat/xxx`, `fix/xxx`, `docs/xxx`; Conventional Commits.
