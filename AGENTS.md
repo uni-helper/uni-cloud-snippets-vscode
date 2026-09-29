@@ -6,7 +6,7 @@ VSCode extension providing uni-cloud code snippets (`prefix` + `body` pairs) for
 
 - **Language/runtime:** no app source code — snippet JSON files and configuration only. Dev pins Node 26 via `.node-version` and `devEngines.runtime` (`onFail: warn`). Published `engines` are consumer-facing: `vscode ^1.40.0` (minimum VSCode) and `node >=18`.
 - **Toolchain:** npm 12 (pinned via `packageManager` + `devEngines.packageManager`), ultracite (a zero-config Biome preset) for lint/format, bumpp (release), @vscode/vsce + ovsx (publish). There is no test suite and no typecheck.
-- **Artifact:** the VSIX ships `snippets/`, `LICENSE`, `uni-helper.png` (`files` + `icon`). Published to both VSCode Marketplace and OpenVSX under publisher `uni-helper`.
+- **Artifact:** the VSIX ships `snippets/`, `LICENSE`, `logo.png` (`files` + `icon`). Published to both VSCode Marketplace and OpenVSX under publisher `uni-helper`.
 
 ## Commands
 
@@ -32,7 +32,7 @@ CI (`.github/workflows/ci.yml`) runs `vpr check` via `voidzero-dev/setup-vp` on 
 The two snippet files are the single source of truth — the extension serves them directly and the README tables mirror them:
 
 - `prefix` is an array so one snippet can offer aliases (`unicloud-db` also matches `<unicloud-db>`); a single entry is the norm.
-- `body` is an array of lines, indented with literal tabs, using `$1`…`$n` tabstops ending in `$0`.
+- `body` is an array of lines, indented with literal tabs, using `$1`…`$n` tabstops ending in `$0` — except the `<unicloud-db>` component snippet, which ends with its closing tag and has no `$0`.
 - Top-level keys are human-readable Chinese labels; `description` follows the pattern `……。更多信息查看 <官方文档 URL>。`
 - When adding or changing a snippet, update the matching README table row in the same change — the tables are hand-maintained to match `snippets/*.json`.
 

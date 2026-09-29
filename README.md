@@ -1,18 +1,14 @@
-<a href="https://github.com/uni-helper/uni-cloud-snippets-vscode"><img src="https://cdn.jsdelivr.net/gh/uni-helper/uni-cloud-snippets-vscode@main/banner.svg" alt="banner" width="100%"/></a>
-
 # @uni-helper/uni-cloud-snippets-vscode
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/uni-helper/uni-cloud-snippets-vscode@main/logo.svg" alt="logo" width="256" height="256" />
+  <img src="https://cdn.jsdelivr.net/gh/uni-helper/uni-cloud-snippets-vscode@main/logo.png" alt="logo" width="256" height="256" />
 </p>
 
 <p align="center">
-  <a href="https://github.com/uni-helper/uni-cloud-snippets-vscode/stargazers"><img src="https://img.shields.io/github/stars/uni-helper/uni-cloud-snippets-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="GitHub Stars"></a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-cloud-snippets-vscode"><img src="https://vsmarketplacebadges.dev/downloads-short/uni-helper.uni-cloud-snippets-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="VSCode downloads"></a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-cloud-snippets-vscode"><img src="https://vsmarketplacebadges.dev/version-short/uni-helper.uni-cloud-snippets-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="VSCode version"></a>
-  <a href="https://open-vsx.org/extension/uni-helper/uni-cloud-snippets-vscode"><img src="https://img.shields.io/open-vsx/dt/uni-helper/uni-cloud-snippets-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="OpenVSX downloads"></a>
-  <a href="https://open-vsx.org/extension/uni-helper/uni-cloud-snippets-vscode"><img src="https://img.shields.io/open-vsx/v/uni-helper/uni-cloud-snippets-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="OpenVSX version"></a>
-  <a href="./LICENSE"><img src="https://img.shields.io/github/license/uni-helper/uni-cloud-snippets-vscode?colorA=005947&colorB=eee&style=for-the-badge" alt="License"></a>
+  <a href="https://github.com/uni-helper/uni-cloud-snippets-vscode/blob/main/LICENSE"><img src="https://img.shields.io/github/license/uni-helper/uni-cloud-snippets-vscode?labelColor=005947&color=eee&style=for-the-badge" alt="License"></a>
+  <a href="https://github.com/uni-helper/uni-cloud-snippets-vscode/stargazers"><img src="https://img.shields.io/github/stars/uni-helper/uni-cloud-snippets-vscode?labelColor=005947&color=eee&style=for-the-badge" alt="GitHub Stars"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-cloud-snippets-vscode"><img src="https://vsmarketplacebadges.dev/version-short/uni-helper.uni-cloud-snippets-vscode.svg?labelColor=005947&color=eee&style=for-the-badge" alt="VSCode version"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-cloud-snippets-vscode"><img src="https://vsmarketplacebadges.dev/downloads-short/uni-helper.uni-cloud-snippets-vscode.svg?labelColor=005947&color=eee&style=for-the-badge" alt="VSCode downloads"></a>
 </p>
 <p align="center">
   <a href="https://github.com/ModyQyW"><img src="https://img.shields.io/badge/Author%20%26%20Maintainer-ModyQyW-blue?style=for-the-badge" alt="Author & Maintainer"></a>
@@ -20,11 +16,11 @@
 
 为 [uni-app](https://uniapp.dcloud.net.cn/) 的 [uni-cloud](https://doc.dcloud.net.cn/uniCloud/) 提供基本能力代码片段。
 
-不想看文档？直接问 AI 🤖 <a href="https://deepwiki.com/uni-helper/uni-cloud-snippets-vscode"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
-
 > **请考虑持续[赞助](https://github.com/ModyQyW/sponsors)以维持该项目的持续健康发展，非常感谢！🙏**
 
 [改动日志](https://github.com/uni-helper/uni-cloud-snippets-vscode/blob/main/CHANGELOG.md)
+
+想让 `uni-app` 开发变得更直观、高效？想要更好的 `uni-app` 开发体验？不妨看看 [uni-helper 主页](https://uni-helper.js.org) 和 [uni-helper GitHub Organization](https://github.com/uni-helper)！
 
 ## 插件特性
 
@@ -98,4 +94,4 @@
 
 ## 许可证
 
-[MIT](./LICENSE) © 2020-present [uni-helper](https://github.com/uni-helper)
+[MIT](https://github.com/uni-helper/uni-cloud-snippets-vscode/blob/main/LICENSE) © 2020-present [uni-helper](https://github.com/uni-helper) & Collaborators
