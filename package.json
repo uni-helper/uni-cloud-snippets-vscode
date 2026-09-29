@@ -33,7 +33,7 @@
   "files": [
     "snippets",
     "LICENSE",
-    "uni-helper.png"
+    "logo.png"
   ],
   "scripts": {
     "check": "ultracite check",
@@ -104,10 +104,9 @@
       "onFail": "warn"
     }
   },
-  "icon": "uni-helper.png",
+  "icon": "logo.png",
   "allowScripts": {
     "@vscode/vsce-sign@2.0.9": true,
-    "esbuild@0.28.1": true,
     "fsevents@2.3.3": true,
     "keytar@7.9.0": true
   },
